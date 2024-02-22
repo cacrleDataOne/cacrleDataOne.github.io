@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>获取点击处的经纬度</title>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.28/"></script>
+  <style>
+    html,
+    body {
+      position: relative;
+      padding: 0;
+      margin: 0;
+    }
+
+    .map {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .button {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map" class="map"> </div>
+  <script>
+    var map, view;
+    var gisModules = {};
+    require([
+      "esri/Map",
+      "esri/WebMap",
+      "esri/views/MapView",
+      "esri/layers/WebTileLayer"
+    ], function (Map, WebMap, MapView, WebTileLayer) {
+      gisModules.Map = Map;
+      gisModules.WebMap = WebMap;
+      gisModules.MapView = MapView;
+      gisModules.WebTileLayer = WebTileLayer;
+
+      map = new gisModules.Map({
+        basemap: "streets"
+      });
+      view = new gisModules.MapView({
+        container: "map",
+        map: map,
+        zoom: 4,
+        center: [116, 39]
+      });
+	  
+	view.on("click", evt => {
+	let mapPoint = evt.mapPoint;
+	alert(`经度：${mapPoint.longitude},纬度${mapPoint.latitude}`);
+	});
+    });
+
+
+  </script>
+</body>
+
+</html>
