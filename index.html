@@ -36,13 +36,6 @@
             esriConfig
         ) => {
             esriConfig.apiKey = "AAPKaf959a9766dc47c2b3198ec31cb621caazyYuI6Rog2IMjlrHUqOmO3bGZ_NtrfDi4BWrfZcShB2nDof9rXV8Qlp3emEnR5Q";
-            //添加底图
-            var lyTile = new TileLayer({
-                url: "https://map.geoq.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer"
-            });
-            var baseMap = new Basemap({
-                baseLayers: [lyTile]
-            });
             var map = new Map({
                 basemap: “topo-vector"
             });
