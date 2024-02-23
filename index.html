@@ -3,7 +3,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="referrer" content="no-referrer|no-referrer-when-downgrade|origin|origin-when-crossorigin|unsafe-url">
     <title>Create Map</title>
     <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
     <script src="https://js.arcgis.com/4.28/"></script>
@@ -20,22 +19,11 @@
 
     <script type="text/javascript">
         require(["esri/Map",
-            "esri/Basemap",
-            "esri/layers/TileLayer",
             "esri/views/MapView",
-            "esri/layers/GraphicsLayer",
-            "esri/Graphic",
-            "esri/config",
         ], (
             Map,
-            Basemap,
-            TileLayer,
             MapView,
-            GraphicsLayer,
-            Graphic,
-            esriConfig
         ) => {
-            esriConfig.apiKey = "AAPKaf959a9766dc47c2b3198ec31cb621caazyYuI6Rog2IMjlrHUqOmO3bGZ_NtrfDi4BWrfZcShB2nDof9rXV8Qlp3emEnR5Q";
             var map = new Map({
                 basemap: “topo-vector"
             });
